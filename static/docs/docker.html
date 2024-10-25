@@ -89,7 +89,7 @@
           to include additional dependencies or configurations. Here’s a basic
           example for adding PHP!
         </p>
-        <pre><code># Start with the base image
+<pre style="text-align: left;"><code># Start with the base image
 FROM gohammy/hammy:latest
 
 # ADD PHP to hammy!
@@ -99,7 +99,12 @@ RUN apt-get update && apt-get install -y php
 EXPOSE 9090
 
 # Run the Hammy server
-CMD ["./hammy"]</code></pre>
+CMD ["./hammy"]
+</code></pre>
+</code></pre>
+To build the Docker image from this Dockerfile, use the following command:
+<code><pre># docker build -t custom-hammy-image .
+</code></pre>
       </div>
     </div>
   </body>
