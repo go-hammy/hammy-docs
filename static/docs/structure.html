@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hammy | Docs</title>
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #f0f0f0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: #ff6f61;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .container {
+        text-align: center;
+        max-width: 800px;
+      }
+      h1 {
+        font-size: 3em;
+        color: #ff6f61;
+      }
+      h2 {
+        font-size: 2em;
+        color: #ff6f61;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 1.2em;
+        line-height: 1.6;
+      }
+      pre {
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+
+      code {
+        color: #ff6f61;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="docs/index">Why Hammy?</a>
+        <a href="docs/structure">Project Structure</a>
+        <a href="docs/go">Build from Go</a>
+        <a href="docs/docker">Running in Docker</a>
+        <a href="docs/docker-compose">Running in Docker Compose</a>
+        <a href="docs/kubernetes">Kubernetes Example</a>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="container">
+        <h1>Hammy Project Structure</h1>
+        <p>
+          The Hammy Project is organized into several key components, each with
+          distinct roles:
+        </p>
+        <ul>
+          <li>
+            <strong>serverPlugin</strong>: This is the main plugin of the Hammy
+            server. It starts the server components and is responsible for
+            processing HTTP requests, delivering files, and overseeing server
+            functions. The serverPlugin directs requests, runs PHP scripts, and
+            delivers HTML files. It also calls other functions like
+            <strong>htaccessFunction</strong> and
+            <strong>cacheFunction</strong> to enhance its capabilities.
+          </li>
+          <li>
+            <strong>cacheFunction</strong>: A function that is part of the
+            serverPlugin, enhancing performance by storing and retrieving cached
+            responses. It reduces the need to access files from the disk
+            repeatedly by serving stored responses for identical requests.
+          </li>
+          <li>
+            <strong>htaccessFunction</strong>: Another function called by the
+            serverPlugin, responsible for managing and applying .htaccess rules
+            to incoming HTTP requests, ensuring proper access control and URL
+            rewriting.
+          </li>
+          <li>
+            <strong>bannerPlugin</strong>: A separate plugin that displays the
+            Hammy banner, providing a visual representation of the server's
+            identity and status.
+          </li>
+          <li>
+            <strong>content</strong>: This folder is designed for use with
+            Docker or Docker Compose. It holds the static and dynamic content
+            that the server will deliver. In a Docker setup, this directory is
+            mapped to <code>/var/www/html</code> within the container.
+          </li>
+          <li>
+            <strong>serverPlugin/pages</strong>: This directory includes custom
+            error pages such as <code>hammy-404.html</code> and
+            <code>hammy-500.html</code>, which are displayed when the server
+            encounters 404 or 500 errors, respectively. These pages are used
+            when there is no 500.html or PHP file in the default
+            <code>/var/www/html</code>.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hammy | Docs</title>
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #f0f0f0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: #ff6f61;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .container {
+        text-align: center;
+        max-width: 800px;
+      }
+      h1 {
+        font-size: 3em;
+        color: #ff6f61;
+      }
+      h2 {
+        font-size: 2em;
+        color: #ff6f61;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 1.2em;
+        line-height: 1.6;
+      }
+      pre {
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+
+      code {
+        color: #ff6f61;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="docs/index">Why Hammy?</a>
+        <a href="docs/structure">Project Structure</a>
+        <a href="docs/go">Build from Go</a>
+        <a href="docs/docker">Running in Docker</a>
+        <a href="docs/docker-compose">Running in Docker Compose</a>
+        <a href="docs/kubernetes">Kubernetes Example</a>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="container">
+        <h1>Deploying Hammy with Kubernetes</h1>
+
+        <h2 id="kubernetes-deployment">Kubernetes Deployment</h2>
+        <p>
+          To deploy Hammy using Kubernetes, you need to apply the provided
+          Kubernetes manifest file. This file contains all the necessary
+          configurations to get Hammy up and running in your Kubernetes cluster.
+        </p>
+        <pre><code>kubectl apply -f kubernetes.yaml</code></pre>
+        <p>
+          The <code>kubernetes.yaml</code> file includes definitions for the
+          Deployment, Service, and any other resources required to run Hammy.
+          Ensure your cluster is properly configured to handle these resources.
+        </p>
+        <p>
+          For more detailed instructions and to customize your deployment, visit
+          our
+          <a href="https://gohammy.org/docs">documentation</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

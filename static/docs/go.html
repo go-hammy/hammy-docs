@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hammy | Docs</title>
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #f0f0f0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: #ff6f61;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .container {
+        text-align: center;
+        max-width: 800px;
+      }
+      h1 {
+        font-size: 3em;
+        color: #ff6f61;
+      }
+      h2 {
+        font-size: 2em;
+        color: #ff6f61;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 1.2em;
+        line-height: 1.6;
+      }
+      pre {
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+
+      code {
+        color: #ff6f61;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="docs/index">Why Hammy?</a>
+        <a href="docs/structure">Project Structure</a>
+        <a href="docs/go">Build from Go</a>
+        <a href="docs/docker">Running in Docker</a>
+        <a href="docs/docker-compose">Running in Docker Compose</a>
+        <a href="docs/kubernetes">Kubernetes Example</a>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="container">
+        <h1 id="build-from-go">Building Hammy from Go</h1>
+        <p>
+          To build the Hammy web server from source, you need to have Go
+          installed on your system. Follow these steps to get started:
+        </p>
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>
+            Ensure you have Go installed. You can download it from the
+            <a href="https://golang.org/dl/">official Go website</a>.
+          </li>
+          <li>
+            Set up your Go workspace by configuring the
+            <code>GOPATH</code> environment variable.
+          </li>
+        </ul>
+        <h3>Steps to Build</h3>
+        <ol>
+          <li>
+            <strong>Clone the Repository:</strong>
+            <pre><code>git clone https://github.com/gohammy/hammy.git</code></pre>
+          </li>
+          <li>
+            <strong>Navigate to the Project Directory:</strong>
+            <pre><code>cd hammy</code></pre>
+          </li>
+          <li>
+            <strong>Build the Project:</strong>
+            <pre><code>go build</code></pre>
+            This command compiles the source code and produces an executable
+            named <code>hammy</code>.
+          </li>
+          <li>
+            <strong>Run the Server:</strong>
+            <pre><code>./hammy</code></pre>
+            This will start the Hammy server, and it will be ready to serve
+            requests.
+          </li>
+        </ol>
+        <h3>Troubleshooting</h3>
+        <p>
+          If you encounter any issues during the build process, ensure that your
+          Go environment is correctly set up and that all dependencies are
+          properly installed.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
