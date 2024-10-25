@@ -61,22 +61,24 @@
 
       <h2>Build from Go</h2>
       <p>To get started with Hammy using Go, follow these steps:</p>
-      <pre><code>git clone https://github.com/yourusername/hammy.git
+      <pre><code>git clone https://github.com/go-hammy/hammy.git
 cd hammy
 go build -o hammy-server
 ./hammy-server</code></pre>
 
       <h2>Running Hammy in Docker</h2>
       <p>To run Hammy using Docker, use the following commands:</p>
-      <pre><code>docker build -t hammy .
-docker run -p 9090:9090 hammy</code></pre>
+      <pre><code>docker run -p 9090:9090 go-hammy/hammy</code></pre>
 
       <h2>Kubernetes Example</h2>
       <p>
         To deploy Hammy using Kubernetes, apply the provided YAML configuration:
       </p>
-      <pre><code>kubectl apply -f kubernetes.yaml</code></pre>
-
+      <pre><code>kubectl apply -f https://raw.githubusercontent.com/go-hammy/hammy/main/examples/kubernetes.yaml</code></pre>
+      <p>
+        This will also create a cloud loadbalancer service! Please read the full
+        docs.
+      </p>
       <p>
         For more detailed instructions, visit our
         <a href="https://gohammy.org/docs">documentation</a>.
