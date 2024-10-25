@@ -81,37 +81,32 @@
 
         <h2 id="running-in-docker-compose">Running Hammy in Docker Compose</h2>
         <p>To run Hammy using Docker Compose, follow these steps:</p>
-        <pre><code>version: '3'
-services:
-  hammy:
-    image: gohammy/hammy
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./my-config.conf:/etc/hammy/my-config.conf</code></pre>
+        <pre><code>curl -O https://raw.githubusercontent.com/go-hammy/hammy/main/examples/docker-compose.yaml
+docker-compose up</code></pre>
+        <p>
+          This will download the <code>docker-compose.yaml</code> file and start
+          the Hammy service along with any other defined services. The default
+          configuration maps the local <code>content</code> directory to the
+          container's web root, allowing you to easily manage your web content.
+        </p>
+        <p>
+          Note that while Docker Compose simplifies the deployment process, it
+          does not handle SSL termination. To expose Hammy securely over HTTPS,
+          you will need to set up a reverse proxy or load balancer that can
+          manage SSL certificates and forward traffic to Hammy. This ensures
+          secure communication between clients and your server.
+        </p>
 
         <h2 id="customizing-docker-compose">
           Customizing the Docker Compose Setup
         </h2>
         <p>
           To customize the Hammy setup in Docker Compose, you can modify the
-          <code>docker-compose.yml</code> file to include additional services,
-          volumes, or configurations. Here’s a basic example:
-        </p>
-        <pre><code>version: '3'
-services:
-  hammy:
-    image: gohammy/hammy
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./my-config.conf:/etc/hammy/my-config.conf
-    environment:
-      - ENV_VAR_NAME=value</code></pre>
-
-        <p>
-          For more detailed instructions, visit our
-          <a href="https://gohammy.org/docs">documentation</a>.
+          <code>docker-compose.yaml</code> file to include additional services,
+          volumes, or configurations. For instance, you might add a database
+          service or adjust environment variables to suit your deployment needs.
+          This flexibility allows you to tailor the setup to your specific
+          requirements.
         </p>
       </div>
     </div>

@@ -81,21 +81,24 @@
 
         <h2 id="kubernetes-deployment">Kubernetes Deployment</h2>
         <p>
-          To deploy Hammy using Kubernetes, you need to apply the provided
-          Kubernetes manifest file. This file contains all the necessary
-          configurations to get Hammy up and running in your Kubernetes cluster.
+          To deploy Hammy using Kubernetes, refer to the Kubernetes manifest
+          available at the following GitHub repository:
+          <a href="https://github.com/go-hammy/hammy/blob/main/examples/kubernetes.yaml">kubernetes.yaml</a>.
+          This file contains all the necessary configurations to get Hammy up
+          and running in your Kubernetes cluster.
         </p>
-        <pre><code>kubectl apply -f kubernetes.yaml</code></pre>
+        <pre><code>kubectl apply -f https://raw.githubusercontent.com/go-hammy/hammy/main/examples/kubernetes.yaml</code></pre>
         <p>
           The <code>kubernetes.yaml</code> file includes definitions for the
           Deployment, Service, and any other resources required to run Hammy.
           Ensure your cluster is properly configured to handle these resources.
         </p>
-        <p>
-          For more detailed instructions and to customize your deployment, visit
-          our
-          <a href="https://gohammy.org/docs">documentation</a>.
         </p>
+
+      <p>
+        Deploying Hammy using the provided <code>kubernetes.yaml</code> will expose the application via a cloud load balancer. Note that the load balancer might still need additional configuration to set up SSL for secure connections. Alternatively, you can replace the load balancer setup with a proper Ingress route to manage traffic and SSL termination more effectively. It's important to note that Hammy itself is not capable of being configured with SSL directly; it always needs to be relayed via a load balancer or Ingress for SSL support.
+      </p>
+
       </div>
     </div>
   </body>

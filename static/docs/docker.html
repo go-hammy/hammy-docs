@@ -81,31 +81,25 @@
 
         <h2 id="running-in-docker">Running Hammy in Docker</h2>
         <p>To run Hammy using Docker, follow these steps:</p>
-        <pre><code>docker build -t hammy .
-docker run -p 9090:9090 hammy</code></pre>
+        <pre><code>docker run -p 9090:9090 gohammy/hammy</code></pre>
 
         <h2 id="editing-docker-image">Editing the Docker Image</h2>
         <p>
-          To customize the Hammy Docker image, you can modify the Dockerfile to
-          include additional dependencies or configurations. Here’s a basic
-          example:
+          To customize the Hammy Docker image, you can create a new Dockerfile
+          to include additional dependencies or configurations. Here’s a basic
+          example for adding PHP!
         </p>
         <pre><code># Start with the base image
-FROM gohammy/hammy
+FROM gohammy/hammy:latest
 
-# Add your custom configuration or dependencies
-COPY ./my-config.conf /etc/hammy/
+# ADD PHP to hammy!
+RUN apt-get update && apt-get install -y php
 
 # Expose the necessary port
 EXPOSE 9090
 
 # Run the Hammy server
-CMD ["./hammy-server"]</code></pre>
-
-        <p>
-          For more detailed instructions, visit our
-          <a href="https://gohammy.org/docs">documentation</a>.
-        </p>
+CMD ["./hammy"]</code></pre>
       </div>
     </div>
   </body>

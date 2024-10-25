@@ -82,48 +82,37 @@
           The Hammy Project is organized into several key components, each with
           distinct roles:
         </p>
-        <ul>
-          <li>
-            <strong>serverPlugin</strong>: This is the main plugin of the Hammy
-            server. It starts the server components and is responsible for
-            processing HTTP requests, delivering files, and overseeing server
-            functions. The serverPlugin directs requests, runs PHP scripts, and
-            delivers HTML files. It also calls other functions like
-            <strong>htaccessFunction</strong> and
-            <strong>cacheFunction</strong> to enhance its capabilities.
-          </li>
-          <li>
-            <strong>cacheFunction</strong>: A function that is part of the
-            serverPlugin, enhancing performance by storing and retrieving cached
-            responses. It reduces the need to access files from the disk
-            repeatedly by serving stored responses for identical requests.
-          </li>
-          <li>
-            <strong>htaccessFunction</strong>: Another function called by the
-            serverPlugin, responsible for managing and applying .htaccess rules
-            to incoming HTTP requests, ensuring proper access control and URL
-            rewriting.
-          </li>
-          <li>
-            <strong>bannerPlugin</strong>: A separate plugin that displays the
-            Hammy banner, providing a visual representation of the server's
-            identity and status.
-          </li>
-          <li>
-            <strong>content</strong>: This folder is designed for use with
-            Docker or Docker Compose. It holds the static and dynamic content
-            that the server will deliver. In a Docker setup, this directory is
-            mapped to <code>/var/www/html</code> within the container.
-          </li>
-          <li>
-            <strong>serverPlugin/pages</strong>: This directory includes custom
-            error pages such as <code>hammy-404.html</code> and
-            <code>hammy-500.html</code>, which are displayed when the server
-            encounters 404 or 500 errors, respectively. These pages are used
-            when there is no 500.html or PHP file in the default
-            <code>/var/www/html</code>.
-          </li>
-        </ul>
+        <pre><code>
+.
+├── Dockerfile                # Dockerfile for making a hammy docker image
+├── bannerPlugin              # Plugin for showing the hammy banner on boot
+│   └── bannerPlugin.go
+├── cacheFunction             # CacheFunction for the main webserver
+│   └── cacheFunction.go
+├── config.yaml               # Config for the hammy build, specified port number and build version
+├── docker-compose.yaml       # Docker Compose with a builder, made for testing Hammy with greater ease
+├── examples                  # Example configurations of hammy, used for the documentations and guides
+│   ├── docker-compose.yaml
+│   └── kubernetes.yaml
+├── go.mod                    # Default go files
+├── go.sum
+├── htaccessFunction          # Function for listening to htaccess files
+│   └── htaccessFunction.go
+├── main.go                   # Main package
+├── readme.md                 # Readme
+└── serverPlugin              # Serverplugin for starting the webserver and maintaining the connections
+    ├── pages                 # Hammy pages, 404, 500 & index
+    │   ├── hammy-404.html
+    │   ├── hammy-500.html
+    │   └── hammy-index.html
+    └── serverPlugin.go
+        </code></pre>
+        <p>
+          Hammy works with plugins and functions, a plugin being a part of the
+          hammy code that is called in the main package, a function being an
+          extension of a plugin. So the cacheFunction is being called in the
+          serverPlugin.
+        </p>
       </div>
     </div>
   </body>
