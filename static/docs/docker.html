@@ -12,7 +12,8 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        min-height: 100vh;
+        box-sizing: border-box;
       }
       header {
         background-color: #333;
@@ -24,9 +25,10 @@
       }
       nav a {
         color: #ff6f61;
-        margin: 0 15px;
+        margin: 0 10px;
         text-decoration: none;
         font-weight: bold;
+        display: inline-block;
       }
       nav a:hover {
         text-decoration: underline;
@@ -37,14 +39,20 @@
         justify-content: center;
         align-items: center;
         padding: 20px;
+        box-sizing: border-box;
+        width: 100%;
       }
       .container {
         text-align: center;
-        max-width: 800px;
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
       }
       h1 {
-        font-size: 3em;
+        font-size: 2.5em;
         color: #ff6f61;
+        margin: 0.5em 0;
       }
       h2 {
         font-size: 2em;
@@ -52,18 +60,33 @@
         margin-top: 20px;
       }
       p {
-        font-size: 1.2em;
+        font-size: 1.1em;
         line-height: 1.6;
+        margin: 0.5em 0;
       }
       pre {
         background-color: #333;
         padding: 10px;
         border-radius: 5px;
         overflow-x: auto;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: left;
       }
-
       code {
         color: #ff6f61;
+        word-wrap: break-word;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2em;
+        }
+        h2 {
+          font-size: 1.5em;
+        }
+        p {
+          font-size: 1em;
+        }
       }
     </style>
   </head>
@@ -92,7 +115,7 @@
           to include additional dependencies or configurations. Here’s a basic
           example for adding PHP!
         </p>
-<pre style="text-align: left;"><code># Start with the base image
+        <pre><code># Start with the base image
 FROM gohammy/hammy:latest
 
 # ADD PHP to hammy!
@@ -104,10 +127,11 @@ EXPOSE 9090
 # Run the Hammy server
 CMD ["./hammy"]
 </code></pre>
-</code></pre>
-To build the Docker image from this Dockerfile, use the following command:
-<code><pre># docker build -t custom-hammy-image .
-</code></pre>
+        <p>
+          To build the Docker image from this Dockerfile, use the following
+          command:
+        </p>
+        <pre><code># docker build -t custom-hammy-image .</code></pre>
       </div>
     </div>
   </body>

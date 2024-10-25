@@ -14,27 +14,35 @@
         align-items: center;
         height: 100vh;
         margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
       }
       a {
         color: #ff6f61;
       }
       .container {
         text-align: center;
+        max-width: 100%;
+        width: 100%;
       }
       h1 {
-        font-size: 4em;
+        font-size: 3em;
         color: #ff6f61;
+        margin: 0.5em 0;
       }
       pre {
         padding: 10px;
         border-radius: 5px;
         overflow-x: auto;
+        font-size: 0.8em;
       }
       code {
         color: #ff6f61;
       }
       p {
-        font-size: 1.5em;
+        font-size: 1.2em;
+        line-height: 1.4;
+        margin: 0.5em 0;
       }
       a {
         color: #ff6f61;
@@ -45,8 +53,19 @@
         text-decoration: underline;
       }
       .hammy-logo {
-        font-size: 2em;
+        font-size: 1.5em;
         margin-top: 20px;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2em;
+        }
+        p {
+          font-size: 1em;
+        }
+        .hammy-logo {
+          font-size: 1em;
+        }
       }
     </style>
   </head>
