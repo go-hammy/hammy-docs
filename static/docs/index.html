@@ -99,6 +99,18 @@
           up in a cloud environment, Hammy provides the flexibility and
           performance you need.
         </p>
+
+        <h2 id="deployment-considerations">Deployment Considerations</h2>
+        <p>
+          Hammy is optimally configured to operate behind a cloud-based reverse
+          proxy, commonly utilized in Kubernetes environments. This
+          configuration ensures that Hammy remains both fast and lightweight.
+          While Hammy does not natively support SSL, it is capable of managing
+          SSL termination when routed through a reverse proxy. The choice to
+          expose Hammy on port 9090, rather than the standard port 80,
+          underscores the importance of always running it behind a reverse proxy
+          for enhanced security and performance.
+        </p>
       </div>
     </div>
   </body>
