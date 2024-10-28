@@ -74,7 +74,7 @@ go build -o hammy-server
 
       <h2>Running Hammy in Docker</h2>
       <p>To run Hammy using Docker, use the following commands:</p>
-      <pre><code>docker run -p 9090:9090 go-hammy/hammy</code></pre>
+      <pre><code>docker run -p 9090:9090 -v /var/www/html:/var/www/html gohammy/hammy</code></pre>
 
       <h2>Kubernetes Example</h2>
       <p>

@@ -111,7 +111,7 @@
 
         <h2 id="running-in-docker">Running Hammy in Docker</h2>
         <p>To run Hammy using Docker, follow these steps:</p>
-        <pre><code>docker run -p 9090:9090 gohammy/hammy</code></pre>
+        <pre><code>docker run -p 9090:9090 -v /var/www/html:/var/www/html gohammy/hammy</code></pre>
 
         <h2 id="editing-docker-image">Editing the Docker Image</h2>
         <p>
